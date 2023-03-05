@@ -1,60 +1,51 @@
-let resources = {
-  gold: 0,
-  undead: 0,
-}
+// Get the count elements
+var undeadCount = document.getElementById("undead-count");
+var armyCount = document.getElementById("army-count");
+var goldCount = document.getElementById("gold-count");
 
-let upgrades = {
-  click: {
-    name: 'Undead Hand',
-    level: 0,
-    cost: 10,
-    increase: 1,
-  },
-  undead: {
-    name: 'Zombie Minion',
-    level: 0,
-    cost: 50,
-    increase: 1,
-  },
-}
+// Set the initial count values
+var undeadCountValue = 10;
+var armyCountValue = 0;
+var goldCountValue = 100;
 
-function buyClick() {
-  if (resources.gold >= upgrades.click.cost) {
-    resources.gold -= upgrades.click.cost
-    upgrades.click.level++
-    resources.undead += upgrades.click.increase
-    upgrades.click.cost = Math.floor(upgrades.click.cost * 1.2)
-    updateUpgrades()
-    updateResources()
+undeadCount.textContent = undeadCountValue;
+armyCount.textContent = armyCountValue;
+goldCount.textContent = goldCountValue;
+
+// Define the cost of an undead and an army
+var undeadCost = 10;
+var armyCost = 20;
+
+// Define the gold gain from clicking the "Collect Gold" button
+var goldGain = 1;
+
+// Define the functions for clicking the "Raise Undead" and "Recruit Army" buttons
+function raiseUndead() {
+  if (goldCountValue >= undeadCost) {
+    undeadCountValue += 1;
+    goldCountValue -= undeadCost;
+    undeadCost += 5;
+    undeadCount.textContent = undeadCountValue;
+    goldCount.textContent = goldCountValue;
+    document.getElementById("raise-undead-cost").textContent = undeadCost;
   }
 }
 
-function buyUndead() {
-  if (resources.undead >= upgrades.undead.cost) {
-    resources.undead -= upgrades.undead.cost
-    upgrades.undead.level++
-    upgrades.undead.increase++
-    upgrades.undead.cost = Math.floor(upgrades.undead.cost * 1.5)
-    updateUpgrades()
-    updateResources()
+function recruitArmy() {
+  if (goldCountValue >= armyCost) {
+    armyCountValue += 1;
+    goldCountValue -= armyCost;
+    armyCost += 10;
+    armyCount.textContent = armyCountValue;
+    goldCount.textContent = goldCountValue;
+    document.getElementById("recruit-army-cost").textContent = armyCost;
   }
 }
 
-function updateResources() {
-  document.getElementById('gold').textContent = resources.gold.toLocaleString()
-  document.getElementById('undead').textContent = resources.undead.toLocaleString()
-}
-
-function updateUpgrades() {
-  document.getElementById('click-name').textContent = upgrades.click.name
-  document.getElementById('click-level').textContent = upgrades.click.level
-  document.getElementById('click-cost').textContent = upgrades.click.cost.toLocaleString()
-  document.getElementById('click-increase').textContent = upgrades.click.increase.toLocaleString()
-  document.getElementById('undead-name').textContent = upgrades.undead.name
-  document.getElementById('undead-level').textContent = upgrades.undead.level
-  document.getElementById('undead-cost').textContent = upgrades.undead.cost.toLocaleString()
-  document.getElementById('undead-increase').textContent = upgrades.undead.increase.toLocaleString()
-}
-
-updateUpgrades()
-updateResources()
+// Set the event listeners for clicking the buttons
+document.getElementById("raise-undead").addEventListener("click", raiseUndead);
+document.getElementById("recruit-army").addEventListener("click", recruitArmy);
+document.getElementById("collect-gold").addEventListener("click", function() {
+  goldCountValue += goldGain;
+  goldCount.textContent = goldCountValue;
+});
