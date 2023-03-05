@@ -1,80 +1,35 @@
-/* Styling für den Body */
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #333333;
+#resources {
+  float: left;
+  margin-right: 20px;
 }
 
-/* Styling für den Header */
-header {
-  background-color: #222222;
-  color: #ffffff;
-  text-align: center;
-  padding: 20px;
+#upgrades {
+  float: left;
+  margin-right: 20px;
 }
 
-/* Styling für den Hauptbereich */
-main {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+button {
   margin-top: 20px;
 }
 
-/* Styling für die Ressourcen-Container */
-.resource-container {
-  background-color: #444444;
-  color: #ffffff;
-  padding: 20px;
-  margin: 10px;
-  border-radius: 10px;
-  text-align: center;
-  width: 200px;
+#upgrade-list {
+  list-style: none;
+  padding-left: 0;
 }
 
-/* Styling für den Button */
-button {
-  background-color: #777777;
-  color: #ffffff;
-  border: none;
-  padding: 10px 20px;
-  margin: 5px;
+.upgrade {
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #EEE;
+  border: 1px solid #CCC;
   border-radius: 5px;
-  cursor: pointer;
 }
 
-/* Styling für den Upgrade-Container */
-.upgrade-container {
-  background-color: #666666;
-  color: #ffffff;
-  padding: 20px;
-  margin: 10px;
-  border-radius: 10px;
-  text-align: center;
-  width: 200px;
+.upgrade:hover {
+  background-color: #DDD;
 }
 
-/* Styling für den Tooltip */
-.tooltip {
-  position: relative;
-  display: inline-block;
-  border-bottom: 1px dotted #999999;
-  cursor: pointer;
-}
-
-.tooltip .tooltiptext {
-  visibility: hidden;
-  width: 120px;
-  background-color: #555555;
-  color: #ffffff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px;
-  position: absolute;
-  z-index: 1;
-}
-
-.tooltip:hover .tooltiptext {
-  visibility: visible;
+.upgrade.active {
+  background-color: #CFC;
+  border-color: #8F8;
 }

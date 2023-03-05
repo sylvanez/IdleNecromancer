@@ -1,56 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-	<meta charset="UTF-8">
-	<title>Undead City</title>
-	<link rel="stylesheet" href="style.css">
+	<title>Idle Necromancer</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-	<h1>Undead City</h1>
-	<div class="resources">
-		<p>Zombies: <span id="zombies">0</span></p>
-		<p>Skeletons: <span id="skeletons">0</span></p>
-		<p>Money: <span id="money">0</span></p>
+	<div id="resources">
+		<h2>Resources</h2>
+		<p>
+			<span id="gold-count">0</span> Gold<br>
+			<span id="skeleton-count">0</span> Skeletons<br>
+			<span id="zombie-count">0</span> Zombies<br>
+		</p>
 	</div>
-	<div class="upgrades">
+
+	<div id="upgrades">
 		<h2>Upgrades</h2>
-		<div class="upgrade">
-			<p>Zombie Farm</p>
-			<p>Cost: <span id="zombieFarmCost">10</span> Zombies</p>
-			<button id="buyZombieFarm">Buy</button>
-		</div>
-		<div class="upgrade">
-			<p>Skeleton Mine</p>
-			<p>Cost: <span id="skeletonMineCost">100</span> Zombies, <span id="skeletonMineSkeletons">10</span> Skeletons</p>
-			<button id="buySkeletonMine">Buy</button>
-		</div>
-		<div class="upgrade">
-			<p>Undead Army</p>
-			<p>Cost: <span id="undeadArmyCost">1000</span> Zombies, <span id="undeadArmySkeletons">100</span> Skeletons</p>
-			<button id="buyUndeadArmy">Buy</button>
-		</div>
+		<ul id="upgrade-list">
+		</ul>
 	</div>
-	<div class="locations">
-		<h2>Locations</h2>
-		<div class="location">
-			<p>Graveyard</p>
-			<p>Cost: <span id="graveyardCost">100</span> Zombies</p>
-			<button id="buyGraveyard">Buy</button>
-		</div>
-		<div class="location">
-			<p>City Hall</p>
-			<p>Cost: <span id="cityHallCost">1000</span> Zombies, <span id="cityHallSkeletons">100</span> Skeletons</p>
-			<button id="buyCityHall">Buy</button>
-		</div>
-		<div class="location">
-			<p>Cathedral</p>
-			<p>Cost: <span id="cathedralCost">10000</span> Zombies, <span id="cathedralSkeletons">1000</span> Skeletons</p>
-			<button id="buyCathedral">Buy</button>
-		</div>
-	</div>
-	<script src="src/game_setup.js"></script>
-	<script src="src/game_ui.js"></script>
-	<script src="src/game_events.js"></script>
-	<script src="src/game.js"></script>
+
+	<button id="summon-skeleton">Summon Skeleton</button>
+	<button id="summon-zombie">Summon Zombie</button>
+
+	<script src="./src/game.js"></script>
+	<script src="./src/game_setup.js"></script>
+	<script src="./src/game_ui.js"></script>
+	<script src="./src/game_events.js"></script>
 </body>
 </html>
